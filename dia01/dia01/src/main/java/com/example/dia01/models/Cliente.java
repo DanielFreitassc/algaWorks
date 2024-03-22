@@ -1,12 +1,36 @@
 package com.example.dia01.models;
 
-import lombok.Data;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Data
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@Table
 public class Cliente {
-    private Long id;
-    private String nome;
-    private String email;
-    private String telefone; 
+    
 
+    @Id
+    @EqualsAndHashCode.Include
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String nome;
+
+    @Column(nullable = false)
+    private String email;
+    
+    @Column(nullable = false, name = "fone")
+    private String telefone; 
 }
+

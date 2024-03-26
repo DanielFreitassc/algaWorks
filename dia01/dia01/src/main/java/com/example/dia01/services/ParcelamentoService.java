@@ -19,7 +19,6 @@ public class ParcelamentoService {
     @Transactional
     public Parcelamento cadastrar(Parcelamento novoParcelamento) {
         novoParcelamento.setDataCriacao(LocalDateTime.now());
-
         return parcelamentoRepository.save(novoParcelamento);
     }
     
